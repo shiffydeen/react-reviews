@@ -19,6 +19,17 @@ export default function Review () {
         }
     }
 
+    const randomReview = () => {
+        let randomNum = Math.floor(Math.random() * reviews.length);
+        if (randomNum === value) {
+            randomNum = randomNum + 1
+        }
+
+        setValue(() => {
+            return checkCount(randomNum)
+        })
+    }
+
     return (
         <article className="review">
             <div className="img-container">
@@ -48,7 +59,9 @@ export default function Review () {
                     <FaChevronRight />
                 </button>
             </div>
-            <button className="btn btn-hipster">surprise me</button>
+            <button 
+                className="btn btn-hipster" 
+                onClick={() => {randomReview()}}>surprise me</button>
         </article>
     )
 }
